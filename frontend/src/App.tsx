@@ -6,8 +6,9 @@ import WindowManager from "./components/windows/WindowManager";
 import BootScreen from "./components/boot/BootWindow";
 import { WORKSPACES } from "./types/workspace";
 import { useTerminal } from "./hooks/useTerminal";
+import { useKeyboardShortcuts } from "./hooks/useKeyboardShortcuts";
 
-const BOOT_SESSION_KEY = "arch-portfolio-booted";
+const BOOT_SESSION_KEY = "arch-linux-booted";
 
 function App() {
   const { lines, submit } = useTerminal();
@@ -25,6 +26,17 @@ function App() {
   function handleTabSelect(id: number) {
     setActiveWindowId((current) => (current === id ? null : id));
   }
+
+  useKeyboardShortcuts({
+    onToggleTerminal: () => setIsTerminalOpen((prev) => !prev),
+    onEscape: () => {
+      setActiveWindowId((current) => {
+        if (current !== null) return null;
+        setIsTerminalOpen(false);
+        return current;
+      });
+    },
+  });
 
   if (!hasBooted) {
     return <BootScreen onComplete={handleBootComplete} />;
