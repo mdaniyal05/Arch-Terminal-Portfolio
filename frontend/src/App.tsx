@@ -43,15 +43,22 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-base flex items-center justify-center p-4 pt-12">
-      {isTerminalOpen ? (
-        <TerminalWindow
-          lines={lines}
-          onSubmit={submit}
-          onClose={() => setIsTerminalOpen(false)}
-        />
-      ) : (
-        <TerminalLauncher onOpen={() => setIsTerminalOpen(true)} />
+    <div
+      className="min-h-screen bg-cover bg-center bg-no-repeat flex items-center justify-center px-2 sm:px-4 pt-12 pb-4 relative"
+      style={{ backgroundImage: "url('/wallpapers/kanagawa.jpg')" }}
+    >
+      <div className="absolute inset-0 bg-base/70" />
+
+      <TerminalLauncher onOpen={() => setIsTerminalOpen((prev) => !prev)} />
+
+      {isTerminalOpen && (
+        <div className="relative z-10 w-full max-w-4xl">
+          <TerminalWindow
+            lines={lines}
+            onSubmit={submit}
+            onClose={() => setIsTerminalOpen(false)}
+          />
+        </div>
       )}
 
       <StatusBar

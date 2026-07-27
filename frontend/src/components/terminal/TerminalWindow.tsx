@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import TitleBar from "./TitleBar";
 import TerminalLine from "./TerminalLine";
 import CommandInput from "./CommandInput";
@@ -16,10 +17,22 @@ export default function TerminalWindow({
   onSubmit,
   onClose,
 }: TerminalWindowProps) {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    scrollRef.current?.scrollTo({
+      top: scrollRef.current.scrollHeight,
+      behavior: "smooth",
+    });
+  }, [lines]);
+
   return (
     <div className="w-full max-w-4xl rounded-lg overflow-hidden border border-border shadow-2xl shadow-black/50 bg-surface font-mono">
       <TitleBar title={title} onClose={onClose} />
-      <div className="p-6 min-h-100 text-sm leading-relaxed space-y-1">
+      <div
+        ref={scrollRef}
+        className="p-4 sm:p-6 h-100 text-sm leading-relaxed space-y-1 overflow-y-auto overflow-x-hidden"
+      >
         {lines.map((line) => (
           <TerminalLine key={line.id} line={line} />
         ))}
