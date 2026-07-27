@@ -27,7 +27,7 @@ export default function WorkspaceTabs({
                 : "text-text-muted hover:bg-surface hover:text-text-primary",
             )}
           >
-            {ws.id} {ws.label}
+            {ws.label}
           </button>
         );
       })}
