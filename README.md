@@ -1,2 +1,3 @@
-# Portfolio-V2
-Portfolio Version 2.
+# Arch Terminal Portfolio
+
+Terminal portfolio with Arch Linux + Hyprland theme.
