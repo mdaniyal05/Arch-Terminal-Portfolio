@@ -1,9 +1,8 @@
 import { type CommandHandler } from "../../types/terminal";
+import { projects as projectList } from "../../data/projects";
 
 export const projects: CommandHandler = () => {
-  return [
-    "Projects.",
-    "",
-    "Will add projects soon. For now, check out my GitHub:",
-  ].join("\n");
+  return projectList
+    .map((p) => `${p.name.padEnd(14)} ${p.description}`)
+    .join("\n");
 };

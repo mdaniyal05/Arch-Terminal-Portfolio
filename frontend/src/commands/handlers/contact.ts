@@ -1,9 +1,8 @@
 import { type CommandHandler } from "../../types/terminal";
+import { contactLinks } from "../../data/contact";
 
 export const contact: CommandHandler = () => {
-  return [
-    "email:    dev@danilambda.com",
-    "github:   github.com/mdaniyal05",
-    "linkedin: linkedin.com/in/mdaniyal05",
-  ].join("\n");
+  return contactLinks
+    .map((link) => `${link.label.padEnd(10)} ${link.value}`)
+    .join("\n");
 };
