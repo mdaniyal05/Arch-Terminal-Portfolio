@@ -1,23 +1,19 @@
-import { useState } from "react";
 import TerminalWindow from "./components/terminal/TerminalWindow";
 import StatusBar from "./components/status-bar/StatusBar";
 import { WORKSPACES } from "./types/workspace";
+import { useTerminal } from "./hooks/useTerminal";
 
 function App() {
-  const [activeWorkspace, setActiveWorkspace] = useState(1);
+  const { lines, submit, runByWorkspace, activeWorkspaceId } = useTerminal();
 
   return (
     <div className="min-h-screen bg-base flex items-center justify-center p-4 pt-12">
-      <TerminalWindow>
-        <p className="text-text-muted">
-          // content goes here
-        </p>
-      </TerminalWindow>
+      <TerminalWindow lines={lines} onSubmit={submit} />
 
       <StatusBar
         workspaces={WORKSPACES}
-        activeId={activeWorkspace}
-        onSelect={setActiveWorkspace}
+        activeId={activeWorkspaceId}
+        onSelect={runByWorkspace}
       />
     </div>
   );
