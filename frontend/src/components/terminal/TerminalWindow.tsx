@@ -3,6 +3,7 @@ import TitleBar from "./TitleBar";
 import TerminalLine from "./TerminalLine";
 import CommandInput from "./CommandInput";
 import { type TerminalLine as TerminalLineType } from "../../types/terminal";
+import { runCommand } from "../../commands/registry";
 
 interface TerminalWindowProps {
   title?: string;
@@ -10,9 +11,13 @@ interface TerminalWindowProps {
 }
 
 export default function TerminalWindow({
-  title = "guest@arch-portfolio: ~",
+  title = "dani@arch-linux: ~",
 }: TerminalWindowProps) {
   const [lines, setLines] = useState<TerminalLineType[]>([]);
+
+  function handleClear() {
+    setLines([]);
+  }
 
   function handleSubmit(command: string) {
     const inputLine: TerminalLineType = {
@@ -21,10 +26,16 @@ export default function TerminalWindow({
       content: command,
     };
 
+    const output = runCommand(command, handleClear);
+
+    if (output === null) {
+      return;
+    }
+
     const outputLine: TerminalLineType = {
       id: crypto.randomUUID(),
       type: "output",
-      content: `command not found: ${command}`,
+      content: output,
     };
 
     setLines((prev) => [...prev, inputLine, outputLine]);
