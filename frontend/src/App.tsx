@@ -38,10 +38,6 @@ function App() {
     },
   });
 
-  if (!hasBooted) {
-    return <BootScreen onComplete={handleBootComplete} />;
-  }
-
   return (
     <div
       className="min-h-screen bg-cover bg-center bg-no-repeat flex items-center justify-center px-2 sm:px-4 pt-12 pb-4 relative"
@@ -49,28 +45,34 @@ function App() {
     >
       <div className="absolute inset-0 bg-base/70" />
 
-      <TerminalLauncher onOpen={() => setIsTerminalOpen((prev) => !prev)} />
+      {!hasBooted ? (
+        <BootScreen onComplete={handleBootComplete} />
+      ) : (
+        <>
+          <TerminalLauncher onOpen={() => setIsTerminalOpen((prev) => !prev)} />
 
-      {isTerminalOpen && (
-        <div className="relative z-10 w-full max-w-4xl">
-          <TerminalWindow
-            lines={lines}
-            onSubmit={submit}
-            onClose={() => setIsTerminalOpen(false)}
+          {isTerminalOpen && (
+            <div className="relative z-10 w-full max-w-4xl">
+              <TerminalWindow
+                lines={lines}
+                onSubmit={submit}
+                onClose={() => setIsTerminalOpen(false)}
+              />
+            </div>
+          )}
+
+          <StatusBar
+            workspaces={WORKSPACES}
+            activeId={activeWindowId ?? 0}
+            onSelect={handleTabSelect}
           />
-        </div>
+
+          <WindowManager
+            activeWindowId={activeWindowId}
+            onClose={() => setActiveWindowId(null)}
+          />
+        </>
       )}
-
-      <StatusBar
-        workspaces={WORKSPACES}
-        activeId={activeWindowId ?? 0}
-        onSelect={handleTabSelect}
-      />
-
-      <WindowManager
-        activeWindowId={activeWindowId}
-        onClose={() => setActiveWindowId(null)}
-      />
     </div>
   );
 }

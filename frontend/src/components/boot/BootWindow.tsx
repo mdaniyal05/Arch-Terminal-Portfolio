@@ -33,7 +33,7 @@ export default function BootWindow({ onComplete }: BootWindowProps) {
   }, []);
 
   return (
-    <div className="fixed inset-0 bg-base flex flex-col justify-center px-6 md:px-24 font-mono text-sm z-50">
+    <div className="fixed inset-0 bg-base/90 backdrop-blur-sm flex flex-col justify-center px-6 md:px-24 font-mono text-sm z-50">
       <div className="space-y-1.5">
         {bootLines.slice(0, visibleCount).map((line, i) => (
           <div key={i} className="flex items-center">
