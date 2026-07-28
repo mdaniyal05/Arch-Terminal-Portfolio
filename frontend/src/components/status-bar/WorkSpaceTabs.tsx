@@ -27,8 +27,7 @@ export default function WorkSpaceTabs({
                 : "text-text-muted hover:bg-surface hover:text-text-primary",
             )}
           >
-            <span>{ws.id}</span>
-            <span className="hidden sm:inline"> {ws.label}</span>
+            <span className="hidden sm:inline cursor-pointer"> {ws.label}</span>
           </button>
         );
       })}

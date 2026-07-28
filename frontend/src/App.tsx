@@ -7,6 +7,7 @@ import BootScreen from "./components/boot/BootWindow";
 import { WORKSPACES } from "./types/workspace";
 import { useTerminal } from "./hooks/useTerminal";
 import { useKeyboardShortcuts } from "./hooks/useKeyboardShortcuts";
+import ResumeLauncher from "./components/terminal/ResumeLauncher";
 
 const BOOT_SESSION_KEY = "arch-linux-booted";
 
@@ -50,6 +51,7 @@ function App() {
       ) : (
         <>
           <TerminalLauncher onOpen={() => setIsTerminalOpen((prev) => !prev)} />
+          <ResumeLauncher />
 
           {isTerminalOpen && (
             <div className="relative z-10 w-full max-w-4xl">
