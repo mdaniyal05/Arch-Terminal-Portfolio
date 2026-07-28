@@ -3,6 +3,7 @@ import { home } from "./handlers/home";
 import { help } from "./handlers/help";
 import { about } from "./handlers/about";
 import { projects } from "./handlers/projects";
+import { experienceCmd } from "./handlers/experience";
 import { contact } from "./handlers/contact";
 import { fastfetch } from "./handlers/fastfetch";
 
@@ -11,6 +12,7 @@ const registry: Record<string, CommandHandler> = {
   help,
   about,
   projects,
+  experience: experienceCmd,
   contact,
   fastfetch,
 };

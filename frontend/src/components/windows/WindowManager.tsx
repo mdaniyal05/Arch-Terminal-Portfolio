@@ -1,5 +1,6 @@
 import WindowFrame from "./WindowFrame";
 import AboutWindow from "./AboutWindow";
+import ExperienceWindow from "./ExperienceWindow";
 import ProjectsWindow from "./ProjectsWindow";
 import ContactWindow from "./ContactWindow";
 
@@ -11,8 +12,9 @@ interface WindowManagerProps {
 const WINDOW_MAP: Record<number, { title: string; content: React.ReactNode }> =
   {
     1: { title: "about.md", content: <AboutWindow /> },
-    2: { title: "projects/", content: <ProjectsWindow /> },
-    3: { title: "contact.md", content: <ContactWindow /> },
+    2: { title: "experience.log", content: <ExperienceWindow /> },
+    3: { title: "projects/", content: <ProjectsWindow /> },
+    4: { title: "contact.md", content: <ContactWindow /> },
   };
 
 export default function WindowManager({
