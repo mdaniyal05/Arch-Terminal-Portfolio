@@ -14,25 +14,25 @@ export default function WindowFrame({
 }: WindowFrameProps) {
   return (
     <div
-      className="fixed inset-0 z-40 flex items-center justify-center bg-base/70 backdrop-blur-sm p-4"
+      className="fixed inset-0 z-40 flex items-center justify-center bg-base/70 backdrop-blur-sm sm:p-4"
       onClick={onClose}
     >
       <div
-        className="w-full max-w-2xl rounded-lg overflow-hidden border border-hypr/40 shadow-2xl shadow-black/50 bg-surface font-mono"
+        className="w-full h-full sm:h-auto sm:max-w-2xl sm:rounded-lg overflow-hidden border-0 sm:border border-hypr/40 shadow-2xl shadow-black/50 bg-surface font-mono"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex items-center justify-between px-4 py-2 bg-surface-hi border-b border-border select-none">
+        <div className="flex items-center justify-between px-4 py-3 sm:py-2 bg-surface-hi border-b border-border select-none">
           <span className="text-xs text-hypr tracking-wide">{title}</span>
           <button
             onClick={onClose}
             aria-label="Close window"
-            className="text-text-muted hover:text-danger transition-colors"
+            className="text-text-muted hover:text-danger transition-colors p-1"
           >
-            <X size={14} />
+            <X size={16} />
           </button>
         </div>
 
-        <div className="p-6 text-sm leading-relaxed text-text-primary max-h-[70vh] overflow-y-auto">
+        <div className="p-4 sm:p-6 text-sm leading-relaxed text-text-primary h-[calc(100%-45px)] sm:h-auto sm:max-h-[70vh] overflow-y-auto">
           {children}
         </div>
       </div>

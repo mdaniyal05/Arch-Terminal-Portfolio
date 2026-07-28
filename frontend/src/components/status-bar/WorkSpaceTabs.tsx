@@ -7,7 +7,7 @@ interface WorkspaceTabsProps {
   onSelect: (id: number) => void;
 }
 
-export default function WorkspaceTabs({
+export default function WorkSpaceTabs({
   workspaces,
   activeId,
   onSelect,
@@ -21,13 +21,14 @@ export default function WorkspaceTabs({
             key={ws.id}
             onClick={() => onSelect(ws.id)}
             className={clsx(
-              "px-2.5 py-1 rounded text-xs font-medium transition-colors",
+              "px-2 sm:px-2.5 py-1 rounded text-xs font-medium transition-colors",
               isActive
                 ? "bg-arch text-base"
                 : "text-text-muted hover:bg-surface hover:text-text-primary",
             )}
           >
-            {ws.label}
+            <span>{ws.id}</span>
+            <span className="hidden sm:inline"> {ws.label}</span>
           </button>
         );
       })}
