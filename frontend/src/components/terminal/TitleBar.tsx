@@ -1,3 +1,5 @@
+import { X } from "lucide-react";
+
 interface TitleBarProps {
   title: string;
   onClose: () => void;
@@ -10,8 +12,10 @@ export default function TitleBar({ title, onClose }: TitleBarProps) {
         <button
           onClick={onClose}
           aria-label="Close terminal"
-          className="w-3 h-3 rounded-sm bg-danger/80 hover:bg-danger transition-colors"
-        />
+          className="w-3 h-3 rounded-sm bg-danger/80 hover:bg-danger transition-colors flex justify-center items-center cursor-pointer"
+        >
+          <X size={16} />
+        </button>
         <span className="w-3 h-3 rounded-sm bg-warn/80" />
         <span className="w-3 h-3 rounded-sm bg-success/80" />
       </div>

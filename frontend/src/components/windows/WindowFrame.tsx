@@ -26,7 +26,7 @@ export default function WindowFrame({
           <button
             onClick={onClose}
             aria-label="Close window"
-            className="text-text-muted hover:text-danger transition-colors p-1"
+            className="text-text-muted hover:text-danger transition-colors p-1 cursor-pointer"
           >
             <X size={16} />
           </button>
