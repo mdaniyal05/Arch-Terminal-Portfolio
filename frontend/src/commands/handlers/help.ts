@@ -4,7 +4,7 @@ export const help: CommandHandler = () => {
   return [
     "Available commands:",
     "",
-    "help         - show this list",
+    "help         - show all commands",
     "about        - who I am",
     "experience   - where I have worked",
     "projects     - things I have built",
