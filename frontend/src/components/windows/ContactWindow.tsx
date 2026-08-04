@@ -15,7 +15,7 @@ export default function ContactWindow() {
               href={link.href}
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-3 p-2.5 rounded border border-border hover:border-arch/50 hover:bg-surface-hi/50 transition-colors"
+              className="flex items-center gap-3 p-2.5 border-2 border-border hover:border-arch/50 hover:bg-surface-hi/50 transition-colors"
             >
               <Icon size={16} />
               <span className="text-text-muted w-16 text-xs uppercase tracking-wide">

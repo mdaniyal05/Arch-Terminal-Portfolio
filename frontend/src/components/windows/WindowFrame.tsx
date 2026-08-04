@@ -18,7 +18,7 @@ export default function WindowFrame({
       onClick={onClose}
     >
       <div
-        className="w-full h-full sm:h-auto sm:max-w-2xl sm:rounded-lg overflow-hidden border-2 sm:border-2 border-hypr/40 shadow-2xl shadow-black/50 bg-surface font-mono"
+        className="w-full h-full sm:h-auto sm:max-w-2xl overflow-hidden border-2 sm:border-2 border-hypr/40 shadow-2xl shadow-black/50 bg-surface font-mono"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-center justify-between px-4 py-3 sm:py-2 bg-surface-hi border-b border-border select-none">
