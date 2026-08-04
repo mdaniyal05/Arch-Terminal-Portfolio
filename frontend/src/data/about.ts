@@ -11,11 +11,12 @@ export const aboutData: AboutData = {
   role: "Software Engineer",
   location: "Karachi, Pakistan",
   bio: [
-    "I'm a software engineer who enjoys building software with immense curiosity that helps others and solves their problems.",
-    "And apparently also enjoys spending way too much time ricing my Linux setup.",
+    "Software engineer focused on building maintainable, well-optimized systems.",
     "",
-    "I care about writing maintainable code, sweating optimizations,",
-    "and making things that feel a little more alive than a typical software application.",
+    "Spends considerable time customizing Linux environments (window managers, dotfiles, terminal tooling).",
+    "",
+    "Prioritizes clean architecture, performance tuning,",
+    "and attention to interaction detail that most applications skip.",
   ],
   skills: [
     "Node.js",
