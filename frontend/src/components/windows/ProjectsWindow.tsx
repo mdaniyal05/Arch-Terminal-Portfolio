@@ -10,7 +10,7 @@ export default function ProjectsWindow() {
         {projects.map((project) => (
           <div
             key={project.id}
-            className="border border-border rounded-md p-4 bg-surface-hi/50 hover:border-arch/50 transition-colors"
+            className="border-2 border-border p-4 bg-surface-hi/50 hover:border-arch/50 transition-colors"
           >
             <div className="flex items-center justify-between">
               <h3 className="text-arch font-semibold">{project.name}</h3>
